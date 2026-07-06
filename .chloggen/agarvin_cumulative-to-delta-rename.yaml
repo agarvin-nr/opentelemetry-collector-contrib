@@ -1,7 +1,5 @@
 change_type: deprecation
 component: processor/cumulative_to_delta
-
-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
 note: Rename the 'cumulativetodelta' processor to 'cumulative_to_delta'. The old 'cumulativetodelta' type remains available as a deprecated alias.
 issues: [45339]
 change_logs: [user]
