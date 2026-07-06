@@ -192,7 +192,7 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 		errorMessage string
 	}{
 		{
-			id: component.NewIDWithName(metadata.Type, ""),
+			id: component.NewIDWithName(metadata.DeprecatedType, ""),
 			expected: &Config{
 				Include: MatchMetrics{
 					Metrics: []string{
@@ -219,11 +219,11 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 			},
 		},
 		{
-			id:       component.NewIDWithName(metadata.Type, "empty"),
+			id:       component.NewIDWithName(metadata.DeprecatedType, "empty"),
 			expected: createDefaultConfig(),
 		},
 		{
-			id: component.NewIDWithName(metadata.Type, "regexp"),
+			id: component.NewIDWithName(metadata.DeprecatedType, "regexp"),
 			expected: &Config{
 				Include: MatchMetrics{
 					Metrics: []string{
@@ -248,7 +248,7 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 			},
 		},
 		{
-			id: component.NewIDWithName(metadata.Type, "metric_type_filter"),
+			id: component.NewIDWithName(metadata.DeprecatedType, "metric_type_filter"),
 			expected: &Config{
 				Include: MatchMetrics{
 					Metrics: []string{
@@ -279,37 +279,37 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 			},
 		},
 		{
-			id:           component.NewIDWithName(metadata.Type, "invalid_include_metric_type_filter"),
+			id:           component.NewIDWithName(metadata.DeprecatedType, "invalid_include_metric_type_filter"),
 			errorMessage: "found invalid metric type in include.metric_types: gauge. Valid values are [exponentialhistogram histogram sum]",
 		},
 		{
-			id:           component.NewIDWithName(metadata.Type, "invalid_exclude_metric_type_filter"),
+			id:           component.NewIDWithName(metadata.DeprecatedType, "invalid_exclude_metric_type_filter"),
 			errorMessage: "found invalid metric type in exclude.metric_types: Invalid. Valid values are [exponentialhistogram histogram sum]",
 		},
 		{
-			id:           component.NewIDWithName(metadata.Type, "missing_match_type"),
+			id:           component.NewIDWithName(metadata.DeprecatedType, "missing_match_type"),
 			errorMessage: "match_type must be set if metrics are supplied",
 		},
 		{
-			id:           component.NewIDWithName(metadata.Type, "missing_name"),
+			id:           component.NewIDWithName(metadata.DeprecatedType, "missing_name"),
 			errorMessage: "metrics must be supplied if match_type is set",
 		},
 		{
-			id: component.NewIDWithName(metadata.Type, "auto"),
+			id: component.NewIDWithName(metadata.DeprecatedType, "auto"),
 			expected: &Config{
 				MaxStaleness: 1 * time.Hour,
 				InitialValue: tracking.InitialValueAuto,
 			},
 		},
 		{
-			id: component.NewIDWithName(metadata.Type, "keep"),
+			id: component.NewIDWithName(metadata.DeprecatedType, "keep"),
 			expected: &Config{
 				MaxStaleness: 1 * time.Hour,
 				InitialValue: tracking.InitialValueKeep,
 			},
 		},
 		{
-			id: component.NewIDWithName(metadata.Type, "drop"),
+			id: component.NewIDWithName(metadata.DeprecatedType, "drop"),
 			expected: &Config{
 				MaxStaleness: 1 * time.Hour,
 				InitialValue: tracking.InitialValueDrop,
