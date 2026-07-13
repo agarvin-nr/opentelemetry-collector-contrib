@@ -104,7 +104,7 @@ components:
         - attributes
         - cardinality_guardian
         - cumulative_to_delta
-        - deltatocumulative
+        - delta_to_cumulative
         - deltatorate
         - drain
         - filter
