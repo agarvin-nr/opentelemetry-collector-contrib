@@ -70,7 +70,7 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 		errorMessage string
 	}{
 		{
-			id: component.NewIDWithName(metadata.Type, ""),
+			id: component.NewIDWithName(metadata.DeprecatedType, ""),
 			expected: &Config{
 				Metrics: []string{
 					"metric1",
@@ -79,14 +79,14 @@ func TestLoadDeprecatedConfig(t *testing.T) {
 			},
 		},
 		{
-			id:           component.NewIDWithName(metadata.Type, "missing_name"),
+			id:           component.NewIDWithName(metadata.DeprecatedType, "missing_name"),
 			errorMessage: "metric names are missing",
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.id.String(), func(t *testing.T) {
-			cm, err := confmaptest.LoadConf(filepath.Join("testdata", "config.yaml"))
+			cm, err := confmaptest.LoadConf(filepath.Join("testdata", "config_deprecated.yaml"))
 			require.NoError(t, err)
 
 			factory := NewFactory()
